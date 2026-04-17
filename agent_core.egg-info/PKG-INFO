@@ -1,0 +1,152 @@
+﻿Metadata-Version: 2.4
+Name: Agent-agent
+Version: 0.1.0
+Summary: Autonomous Systems â€” 3-Layer Agent Architecture
+License: Proprietary
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: openai>=1.30
+Requires-Dist: httpx>=0.27
+Requires-Dist: python-dotenv>=1.0
+Requires-Dist: pydantic>=2.7
+Requires-Dist: google-auth>=2.29
+Requires-Dist: google-auth-httplib2>=0.2
+Requires-Dist: google-api-python-client>=2.130
+Requires-Dist: atproto>=0.0.54
+Requires-Dist: rich>=13.7
+Requires-Dist: typer>=0.12
+Requires-Dist: structlog>=24.1
+Provides-Extra: dev
+Requires-Dist: pytest>=8.2; extra == "dev"
+Requires-Dist: pytest-cov>=5.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.23; extra == "dev"
+Requires-Dist: ruff>=0.4; extra == "dev"
+Requires-Dist: black>=24.4; extra == "dev"
+Requires-Dist: mypy>=1.10; extra == "dev"
+
+# Autonomous Systems â€” Agent Architecture
+
+A structured, 3-layer agent system designed to balance **autonomy with integrity**.
+
+> *"You are not the worker. You are the steward of the system."*
+
+---
+
+## Architecture Overview
+
+```
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  Layer 1 Â· DIRECTIVE          directives/            â”‚
+â”‚  Intent, structure, and boundaries                   â”‚
+â”‚  Written as SOP-style Markdown documents             â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  Layer 2 Â· ORCHESTRATION      orchestrator/          â”‚
+â”‚  Decision-making, brand alignment, routing           â”‚
+â”‚  Bridge between intention and action                 â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  Layer 3 Â· EXECUTION          executor/              â”‚
+â”‚  Deterministic tool actions, logging                 â”‚
+â”‚  Performs â€” does not reason                          â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+```
+
+---
+
+## Governing Principles
+
+| Principle | Over |
+|---|---|
+| Clarity | Efficiency |
+| Long-term alignment | Short-term gain |
+| Careful growth | Aggressive expansion |
+| Integrity | Output volume |
+
+---
+
+## Directory Structure
+
+```
+Antigravity/
+â”œâ”€â”€ CLAUDE.md              Agent architecture specification
+â”œâ”€â”€ README.md              This file
+â”œâ”€â”€ main.py                CLI entrypoint
+â”œâ”€â”€ pyproject.toml         Project metadata & dependencies
+â”œâ”€â”€ .env.example           Required environment variables (template)
+â”‚
+â”œâ”€â”€ directives/            Layer 1 â€” Directive
+â”‚   â”œâ”€â”€ _template.md       Canonical directive template (all 7 sections)
+â”‚   â”œâ”€â”€ _archive/          Superseded directive versions
+â”‚   â””â”€â”€ README.md
+â”‚
+â”œâ”€â”€ orchestrator/          Layer 2 â€” Orchestration
+â”‚   â”œâ”€â”€ brand_alignment.py Brand Alignment Engine (4-dimension check)
+â”‚   â”œâ”€â”€ output_classes.py  Output class definitions & risk tolerances
+â”‚   â”œâ”€â”€ router.py          Directive reader + execution router
+â”‚   â”œâ”€â”€ error_handler.py   Error handling + escalation
+â”‚   â””â”€â”€ README.md
+â”‚
+â”œâ”€â”€ executor/              Layer 3 â€” Execution
+â”‚   â”œâ”€â”€ tools/
+â”‚   â”‚   â”œâ”€â”€ content.py     Google Sheets, Substack, OneDrive, Bluesky (read)
+â”‚   â”‚   â”œâ”€â”€ transformation.py  OpenAI, formatting utilities
+â”‚   â”‚   â”œâ”€â”€ publishing.py  Bluesky, email distribution
+â”‚   â”‚   â”œâ”€â”€ logging_tool.py    Structured action + error logger
+â”‚   â”‚   â””â”€â”€ storage.py     Archive & storage operations
+â”‚   â””â”€â”€ README.md
+â”‚
+â”œâ”€â”€ logs/                  Runtime logs (gitignored)
+â”œâ”€â”€ drafts/                Client-facing draft outputs (gitignored)
+â””â”€â”€ tests/                 Pytest test suite
+```
+
+---
+
+## Setup
+
+```bash
+# Install dependencies
+pip install -e ".[dev]"
+
+# Copy and populate secrets
+cp .env.example .env
+
+# Run the CLI
+python main.py --help
+
+# Run tests
+pytest
+```
+
+---
+
+## Output Classes
+
+| Class | Description | Risk Tolerance |
+|---|---|---|
+| `INTERNAL_REASONING` | Hidden logic, evaluations | High |
+| `INTERNAL_OPERATIONAL` | System updates, logs, structured data | Medium |
+| `CLIENT_FACING_DRAFT` | Content prepared, not yet public | Low |
+| `PUBLIC_FACING_PUBLISHED` | Final, visible content | Minimal â€” BAE required |
+
+---
+
+## Brand Alignment Engine (BAE)
+
+All public-facing outputs must pass a 4-dimension check **in order**:
+
+1. **Truth** â€” Is content accurate and grounded in source material?
+2. **Mission Fit** â€” Does it align with Community, Environment, and Transparency?
+3. **Tone & Dignity** â€” Is the voice calm, grounded, and on-brand?
+4. **CTA Effectiveness** â€” Is the call-to-action clear and non-extractive?
+
+If checks 1â€“3 fail â†’ constrained output mode or stop.
+
+---
+
+## Contributing (Agents & Humans)
+
+- Never delete directives â€” only supersede them
+- Archive previous version before revising any directive
+- Log every meaningful action: what, when, why, what changed
+- Never overwrite critical records without a trace
+

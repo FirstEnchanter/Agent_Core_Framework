@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,800;1,400;1,800&family=Inter:wght@400;600;800&display=swap');
+
+:root {
+    --primary: #145A5A;        /* Deep Forest Teal */
+    --accent: #74826B;         /* Muted Olive */
+    --gold: #A18833;           /* Brand Gold */
+    --bg-main: #E5E1D3;        /* Warm Beige */
+    --bg-card: #fdfdfc;        /* Off-white */
+    --text-main: #333333;
+    --text-muted: #666666;
+    --border: #d9d4c5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: var(--bg-main);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding: 40px 20px;
+    background-image: 
+        radial-gradient(circle at 2px 2px, var(--border) 1px, transparent 0);
+    background-size: 24px 24px; /* Matches the diamond grid pattern from Carrd */
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 20px;
+}
+
+.brand {
+    font-family: 'EB Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -0.01em;
+}
+
+.brand span {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+}
+
+.status-dot.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    background: #4ade80; /* Brighter green for active state */
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .5; transform: scale(1.2); }
+}
+
+.command-stack {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--primary); /* Stylized brand border */
+    border-radius: 0; /* Sharp, high-end professional look */
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.card h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.8rem;
+    color: var(--primary);
+}
+
+.step-title {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: var(--primary);
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.step-title span {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    background: var(--primary);
+    color: white;
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+    color: var(--accent);
+    margin-bottom: 8px; /* Force label to sit above input */
+}
+
+input, select, textarea {
+    width: 100%; /* Force boxes to align to container width */
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 0;
+    padding: 14px;
+    color: var(--text-main);
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(161, 136, 51, 0.1);
+}
+
+.btn {
+    background: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 800;
+    border-radius: 0;
+    padding: 18px;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: var(--primary);
+}
+
+/* Help Icons & Onboarding */
+.help-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    font-size: 10px;
+    cursor: help;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 10px 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    background: var(--accent);
+    color: white;
+}
+
+/* Activity Log specific styling */
+.log-container {
+    background: #f8f7f2;
+    border: 1px inset var(--border);
+    color: #444;
+}
+
+.log-entry {
+    border-left: 3px solid var(--gold);
+    background: white;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.log-cat {
+    background: var(--primary);
+    color: white;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    border-radius: 2px;
+}

@@ -1,0 +1,14 @@
+﻿{
+    "imap_server": "imap.gmail.com",
+    "email_user": "1stenchanter.tv@gmail.com",
+    "email_pass": "sbcamktwvzkiiwya",
+    "msg_provider": "discord",
+    "msg_url": "https://discord.com/api/webhooks/1493633054348935168/KuOnNmNNYUoW7O3p2XJGueSEfTh1OLkP1ziMDuX0fKnkYGNoSa5-oz40oVYZ0RDun10R",
+    "vips": "user@example.com",
+    "goal": "Optimize executive time and ensure high-priority strategic leads are flagged immediately.",
+    "urgency": "substack",
+    "tone": "High-Trust & Transparent (Agent Default)",
+    "enable_filing": true,
+    "enable_flagging": true
+}
+
