@@ -1,5 +1,5 @@
 """
-State Memory Tool — Layer 3: Tracking
+State Memory Tool  Layer 3: Tracking
 Ensures the agent doesn't repeat work on the same items.
 """
 

@@ -1,5 +1,5 @@
 """
-Storage / Archive Tools — Layer 3: Execution
+Storage / Archive Tools  Layer 3: Execution
 
 Tool Class 5: Storage / Archive Tools (from CLAUDE.md)
 
@@ -27,9 +27,9 @@ from executor.tools.logging_tool import get_logger, log_action
 log = get_logger(__name__)
 
 
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 # Directive Archiver
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 
 class DirectiveArchiver:
     """
@@ -38,7 +38,7 @@ class DirectiveArchiver:
     SH Rule: Agents may revise directives, but must:
     - Archive the previous version automatically
     - Log timestamp, reason for change, and agent ID
-    - Never delete — only supersede
+    - Never delete  only supersede
 
     Usage:
         archiver = DirectiveArchiver()
@@ -95,7 +95,7 @@ class DirectiveArchiver:
 
         log_action(
             log,
-            what=f"Archived directive: {directive_path.name} → {archive_name}",
+            what=f"Archived directive: {directive_path.name}  {archive_name}",
             when=timestamp,
             why=reason,
             changed=f"Created archive: {archive_path}",
@@ -126,9 +126,9 @@ class DirectiveArchiver:
         return sorted(self.archive_dir.glob(pattern))
 
 
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 # Generic File Storage
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 
 class FileStorage:
     """

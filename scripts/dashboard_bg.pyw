@@ -1,4 +1,4 @@
-﻿import http.server
+import http.server
 import socketserver
 import webbrowser
 import os
@@ -176,4 +176,3 @@ def start_server():
 
 if __name__ == "__main__":
     start_server()
-

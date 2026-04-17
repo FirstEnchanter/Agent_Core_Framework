@@ -1,4 +1,4 @@
-﻿import http.server
+import http.server
 import socketserver
 import webbrowser
 import os
@@ -85,7 +85,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                         g_logs = json.load(f)
                         for entry in g_logs:
                             level = entry.get("level", "INFO")
-                            icon = "ðŸ”´" if level == "CRITICAL" else "ðŸŸ " if level == "WARNING" else "ðŸ”µ"
+                            icon = "" if level == "CRITICAL" else "" if level == "WARNING" else ""
                             logs.append({
                                 "type": "error" if level in ["CRITICAL", "WARNING"] else "success",
                                 "timestamp": entry.get("timestamp"),
@@ -274,4 +274,3 @@ def start_server():
 
 if __name__ == "__main__":
     start_server()
-

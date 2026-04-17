@@ -1,17 +1,17 @@
-﻿"""
-Brand Alignment Engine (BAE) â€” Layer 2: Orchestration
+"""
+Brand Alignment Engine (BAE)  Layer 2: Orchestration
 
 Mandatory check before any public-facing output.
 
 Evaluation order (from CLAUDE.md):
-    1. Truth          â€” Is content accurate and grounded in source material?
-    2. Mission Fit    â€” Does it align with Community, Environment, Transparency?
-    3. Tone & Dignity â€” Is the voice calm, grounded, and on brand?
-    4. CTA Effectiveness â€” Is the CTA clear, appropriate, and non-extractive?
+    1. Truth           Is content accurate and grounded in source material?
+    2. Mission Fit     Does it align with Community, Environment, Transparency?
+    3. Tone & Dignity  Is the voice calm, grounded, and on brand?
+    4. CTA Effectiveness  Is the CTA clear, appropriate, and non-extractive?
 
 Rules:
-    - If checks 1, 2, or 3 fail â†’ trigger constrained output mode or stop
-    - If check 4 fails alone â†’ flag for revision but may continue as draft
+    - If checks 1, 2, or 3 fail  trigger constrained output mode or stop
+    - If check 4 fails alone  flag for revision but may continue as draft
     - All checks run in order; a failure in an earlier check may short-circuit later checks
 
 Output: BrandAlignmentResult with pass/fail per dimension and recommended action.
@@ -28,16 +28,16 @@ from executor.tools.logging_tool import get_logger
 log = get_logger(__name__)
 
 
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# 
 # Types
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# 
 
 class BAEAction(str, Enum):
     """Recommended action after a BAE evaluation."""
-    PROCEED        = "proceed"           # All checks passed â€” safe to publish
+    PROCEED        = "proceed"           # All checks passed  safe to publish
     CONSTRAIN      = "constrain"         # Reduce complexity, shorten, remove ambiguity
     SAVE_DRAFT     = "save_draft"        # Stop, save as draft, escalate
-    STOP           = "stop"              # Hard stop â€” do not publish, do not draft
+    STOP           = "stop"              # Hard stop  do not publish, do not draft
 
 
 class MissionDimension(str, Enum):
@@ -50,7 +50,7 @@ class MissionDimension(str, Enum):
 class DimensionResult:
     """Result for a single BAE dimension."""
     passed: bool
-    confidence: float           # 0.0 â€“ 1.0
+    confidence: float           # 0.0  1.0
     notes: str = ""
     flagged_phrases: list[str] = field(default_factory=list)
 
@@ -80,7 +80,7 @@ class BrandAlignmentResult:
     @property
     def critical_failure(self) -> bool:
         """
-        True if checks 1, 2, or 3 failed â€” these require stopping or constraining.
+        True if checks 1, 2, or 3 failed  these require stopping or constraining.
         Check 4 (CTA) failure alone is non-critical.
         """
         return not (
@@ -90,9 +90,9 @@ class BrandAlignmentResult:
         )
 
 
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# 
 # Engine
-# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# 
 
 class BrandAlignmentEngine:
     """
@@ -218,9 +218,9 @@ Respond only with: PASSED or FAILED followed by a brief reason."""
         return DimensionResult(passed=passed, confidence=0.9, notes=judgement)
 
 
-    # â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    # 
     # Action computation
-    # â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    # 
 
     def _compute_action(
         self,
@@ -234,29 +234,29 @@ Respond only with: PASSED or FAILED followed by a brief reason."""
         # Critical failure: checks 1, 2, or 3 failed
         if not truth.passed:
             action = BAEAction.STOP
-            stop_reason = "Truth check failed â€” content cannot be verified against source material."
+            stop_reason = "Truth check failed  content cannot be verified against source material."
             summary = f"STOP: {stop_reason}"
 
         elif not mission_fit.passed:
             action = BAEAction.SAVE_DRAFT
-            stop_reason = "Mission fit check failed â€” content does not align with SH pillars."
+            stop_reason = "Mission fit check failed  content does not align with SH pillars."
             summary = f"DRAFT: {stop_reason}"
 
         elif not tone.passed:
             action = BAEAction.CONSTRAIN
-            stop_reason = "Tone & dignity check failed â€” voice is not aligned with SH identity."
+            stop_reason = "Tone & dignity check failed  voice is not aligned with SH identity."
             summary = f"CONSTRAIN: {stop_reason}"
 
         # Non-critical failure: only CTA failed
         elif not cta.passed:
             action = BAEAction.CONSTRAIN
             stop_reason = None
-            summary = "CTA effectiveness check flagged â€” CTA may need revision before publishing."
+            summary = "CTA effectiveness check flagged  CTA may need revision before publishing."
 
         else:
             action = BAEAction.PROCEED
             stop_reason = None
-            summary = "All BAE dimensions passed â€” content is cleared for publishing."
+            summary = "All BAE dimensions passed  content is cleared for publishing."
 
         return BrandAlignmentResult(
             truth=truth,
@@ -267,4 +267,3 @@ Respond only with: PASSED or FAILED followed by a brief reason."""
             summary=summary,
             stop_reason=stop_reason,
         )
-

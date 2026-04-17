@@ -1,5 +1,5 @@
 """
-Error Handler & Escalation — Layer 2: Orchestration
+Error Handler & Escalation  Layer 2: Orchestration
 
 Handles errors, self-correction attempts, and escalation when
 the system cannot resolve an issue autonomously.
@@ -17,7 +17,7 @@ Escalation triggers:
     - Failure cannot be resolved
     - System risks fabricating or misrepresenting
 
-Default escalation action: save draft → log issue → notify user
+Default escalation action: save draft  log issue  notify user
 """
 
 from __future__ import annotations
@@ -37,9 +37,9 @@ log = get_logger(__name__)
 F = TypeVar("F", bound=Callable[..., Any])
 
 
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 # Types
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 
 class FailureType(str, Enum):
     TRUTH_UNVERIFIABLE   = "truth_unverifiable"
@@ -73,9 +73,9 @@ class EscalationPayload:
     traceback: str = ""
 
 
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 # Handler
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 
 class ErrorHandler:
     """
@@ -236,7 +236,7 @@ class ErrorHandler:
         path = self.drafts_dir / filename
 
         annotated = (
-            f"<!-- DRAFT — Saved by ErrorHandler -->\n"
+            f"<!-- DRAFT  Saved by ErrorHandler -->\n"
             f"<!-- Directive: {self.directive_id} -->\n"
             f"<!-- Failure: {failure_type.value} -->\n"
             f"<!-- Timestamp: {timestamp} -->\n"

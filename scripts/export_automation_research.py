@@ -2,7 +2,7 @@
 export_automation_research.py
 
 Exports automation research data to the 'Automation Research' tab in Google Sheets.
-Uses the shared safe-write pattern: scan → prepare → re-scan → merge → write.
+Uses the shared safe-write pattern: scan  prepare  re-scan  merge  write.
 """
 
 import os
@@ -58,10 +58,10 @@ def main():
         worksheet = sh.worksheet(TAB_NAME)
         print(f"Found '{TAB_NAME}' worksheet.")
     except gspread.exceptions.WorksheetNotFound:
-        print(f"'{TAB_NAME}' not found — creating it...")
+        print(f"'{TAB_NAME}' not found  creating it...")
         worksheet = sh.add_worksheet(title=TAB_NAME, rows="50", cols="5")
 
-    # Safe-write: scan → prepare → re-scan → merge → write
+    # Safe-write: scan  prepare  re-scan  merge  write
     total = safe_write_worksheet(
         worksheet=worksheet,
         managed_headers=HEADERS,

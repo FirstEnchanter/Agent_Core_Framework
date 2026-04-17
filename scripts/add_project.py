@@ -1,5 +1,5 @@
-﻿"""
-add_project.py â€” CLI helper to add a new project to the Agent dashboard.
+"""
+add_project.py  CLI helper to add a new project to the Agent dashboard.
 
 Usage:
     python scripts/add_project.py "Project Name" "Short description" [--status Active]
@@ -107,4 +107,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

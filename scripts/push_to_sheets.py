@@ -6,7 +6,7 @@ import glob
 from datetime import datetime
 import gspread
 
-# Shared safe-write utility (scan → prepare → re-scan → merge → write)
+# Shared safe-write utility (scan  prepare  re-scan  merge  write)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from sheet_utils import safe_write_worksheet
 

@@ -1,5 +1,5 @@
 """
-Universal Messaging Tools — Layer 3: Execution
+Universal Messaging Tools  Layer 3: Execution
 Dispatches triaged alerts to Slack, Discord, or Teams.
 """
 
@@ -35,7 +35,7 @@ class MessagingClient:
             self._send_generic(mail, triage)
 
     def _send_slack(self, mail: Dict[str, Any], triage: Dict[str, Any]):
-        priority_emoji = "🔴 *URGENT*" if triage['priority'] >= 5 else "🟡 *PRIORITY*"
+        priority_emoji = " *URGENT*" if triage['priority'] >= 5 else " *PRIORITY*"
         payload = {
             "blocks": [
                 {"type": "section", "text": {"type": "mrkdwn", "text": f"{priority_emoji} | *{triage['category']} Alert*"}},

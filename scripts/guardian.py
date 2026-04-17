@@ -57,7 +57,7 @@ def send_discord_alert(event):
 
     payload = {
         "embeds": [{
-            "title": f"🛡️ System Guardian — {event['type']}",
+            "title": f" System Guardian  {event['type']}",
             "description": f"**{event['message']}**",
             "color": color,
             "fields": [

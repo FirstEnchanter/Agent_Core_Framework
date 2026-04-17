@@ -64,7 +64,7 @@ document.getElementById('triageConfig').addEventListener('submit', async (e) => 
 // Handle Connection Testing
 document.getElementById('testConnBtn').addEventListener('click', async () => {
     const testStatus = document.getElementById('testStatus');
-    testStatus.textContent = "⌛ Checking...";
+    testStatus.textContent = " Checking...";
     testStatus.style.color = "var(--text-main)";
 
     const payload = {
@@ -82,14 +82,14 @@ document.getElementById('testConnBtn').addEventListener('click', async () => {
         const data = await resp.json();
         
         if (data.status === 'success') {
-            testStatus.textContent = "✅ " + data.message;
+            testStatus.textContent = " " + data.message;
             testStatus.style.color = "#145A5A";
         } else {
-            testStatus.textContent = "❌ " + data.message;
+            testStatus.textContent = " " + data.message;
             testStatus.style.color = "#d9534f";
         }
     } catch (e) {
-        testStatus.textContent = "❌ Error reaching server.";
+        testStatus.textContent = " Error reaching server.";
         testStatus.style.color = "#d9534f";
     }
 });

@@ -1,9 +1,9 @@
 """
-Executor — Layer 3: Execution
+Executor  Layer 3: Execution
 
 This package performs deterministic actions.
 
-It is NOT responsible for reasoning — that is the orchestrator's job.
+It is NOT responsible for reasoning  that is the orchestrator's job.
 It executes reliably using tools, scripts, and external systems.
 
 Principles (from CLAUDE.md):

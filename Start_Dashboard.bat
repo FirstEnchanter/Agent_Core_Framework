@@ -1,6 +1,6 @@
-﻿@echo off
+@echo off
 cd /d %~dp0..
-title Autonomous Intelligence Systems â€” Project Dashboard
+title Autonomous Intelligence Systems  Project Dashboard
 color 0B
 echo Starting your secure Agent Dashboard...
 echo Ensuring virtual environment...
@@ -18,4 +18,3 @@ echo Done! The dashboard is now running invisibly in the background.
 echo Opening dashboard in your browser...
 timeout /t 2 >nul
 start http://localhost:8080
-

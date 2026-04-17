@@ -1,5 +1,5 @@
 """
-Orchestrator — Layer 2: Decision-Making
+Orchestrator  Layer 2: Decision-Making
 
 This package is the bridge between intention (directives) and action (execution).
 

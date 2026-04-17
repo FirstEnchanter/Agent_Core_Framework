@@ -1,5 +1,5 @@
 """
-Publishing / Distribution Tools — Layer 3: Execution
+Publishing / Distribution Tools  Layer 3: Execution
 
 Tool Class 3: Publishing / Distribution Tools (from CLAUDE.md)
 
@@ -27,9 +27,9 @@ from executor.tools.logging_tool import get_logger
 log = get_logger(__name__)
 
 
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 # Bluesky Publisher
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 
 class BlueSkyPublisher:
     """
@@ -126,9 +126,9 @@ class BlueSkyPublisher:
 
 
 
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 # Email / Escalation Notifier
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 
 class EmailNotifier:
     """

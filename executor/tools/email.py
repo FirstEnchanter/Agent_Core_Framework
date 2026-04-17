@@ -1,5 +1,5 @@
 """
-Email Execution Tools — Layer 3: Execution
+Email Execution Tools  Layer 3: Execution
 Universal IMAP/SMTP Connectivity for Triage.
 """
 

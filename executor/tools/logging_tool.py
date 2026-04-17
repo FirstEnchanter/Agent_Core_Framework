@@ -1,5 +1,5 @@
 """
-Logging Tool — Layer 3: Execution / Logging & Monitoring
+Logging Tool  Layer 3: Execution / Logging & Monitoring
 
 Structured logger meeting SH mandatory logging requirements (from CLAUDE.md):
 
@@ -28,9 +28,9 @@ from typing import Any
 import structlog
 from structlog.types import FilteringBoundLogger
 
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 # Configuration
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 
 _configured = False
 
@@ -113,9 +113,9 @@ def get_logger(name: str) -> FilteringBoundLogger:
     return structlog.get_logger(name)
 
 
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 # Structured action logger helpers
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 
 def log_action(
     logger: FilteringBoundLogger,

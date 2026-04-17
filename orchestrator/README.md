@@ -1,4 +1,4 @@
-﻿# Orchestrator â€” Layer 2
+# Orchestrator  Layer 2
 
 This package is the **decision-making layer** of the Autonomous Systems agent architecture.
 
@@ -22,18 +22,18 @@ This package is the **decision-making layer** of the Autonomous Systems agent ar
 Run **in order** before any `CLIENT_FACING_DRAFT` or `PUBLIC_FACING_PUBLISHED` output:
 
 ```
-1. Truth          â†’  grounded in source material?
-2. Mission Fit    â†’  Community / Environment / Transparency?
-3. Tone & Dignity â†’  calm, grounded, on-brand?
-4. CTA            â†’  clear, appropriate, non-extractive?
+1. Truth            grounded in source material?
+2. Mission Fit      Community / Environment / Transparency?
+3. Tone & Dignity   calm, grounded, on-brand?
+4. CTA              clear, appropriate, non-extractive?
 ```
 
 | Failure | Action |
 |---|---|
-| Check 1 fails | STOP â€” do not proceed |
-| Check 2 fails | SAVE_DRAFT â€” escalate |
-| Check 3 fails | CONSTRAIN â€” reduce complexity |
-| Check 4 only  | CONSTRAIN â€” flag for revision |
+| Check 1 fails | STOP  do not proceed |
+| Check 2 fails | SAVE_DRAFT  escalate |
+| Check 3 fails | CONSTRAIN  reduce complexity |
+| Check 4 only  | CONSTRAIN  flag for revision |
 | All pass      | PROCEED |
 
 ---
@@ -48,9 +48,8 @@ Agents operate autonomously by default. However:
 
 ## Escalation Triggers
 
-Escalate (save draft â†’ log â†’ notify user) when:
+Escalate (save draft  log  notify user) when:
 - Truth cannot be verified
 - Mission fit is unclear
 - Failure cannot be self-corrected
 - System risks fabricating or misrepresenting
-

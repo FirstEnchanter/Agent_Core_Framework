@@ -1,4 +1,4 @@
-# Executor — Layer 3
+# Executor  Layer 3
 
 This package performs **deterministic actions**.
 
@@ -13,17 +13,17 @@ This package performs **deterministic actions**.
 | `tools/content.py` | Content / Source | Google Sheets, Substack, OneDrive, Bluesky (read) |
 | `tools/transformation.py` | Transformation / Generation | OpenAI, text formatters |
 | `tools/publishing.py` | Publishing / Distribution | Bluesky (post), SMTP email |
-| `tools/logging_tool.py` | Logging / Monitoring | structlog → console + rotating file |
+| `tools/logging_tool.py` | Logging / Monitoring | structlog  console + rotating file |
 | `tools/storage.py` | Storage / Archive | File system, directive archive |
 
 ---
 
 ## Execution Principles
 
-- **Prefer tools over manual logic** — don't re-invent what a library does
-- **Keep actions deterministic** — same input → same output
-- **Avoid improvisation** — the directive defines what to do, the executor just does it
-- **Ensure repeatability** — log inputs/outputs so any action can be replicated
+- **Prefer tools over manual logic**  don't re-invent what a library does
+- **Keep actions deterministic**  same input  same output
+- **Avoid improvisation**  the directive defines what to do, the executor just does it
+- **Ensure repeatability**  log inputs/outputs so any action can be replicated
 
 ---
 
@@ -49,5 +49,5 @@ All errors must log (use `log_error()`):
 ## Data Integrity
 
 - **Never overwrite** critical records without creating a `.bak` trace first
-- **Never delete** directive files — use `DirectiveArchiver` to supersede them
+- **Never delete** directive files  use `DirectiveArchiver` to supersede them
 - All auditability is handled automatically by the storage tools

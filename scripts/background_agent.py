@@ -1,5 +1,5 @@
 """
-Background Agent Daemon — Layer 2: Orchestration
+Background Agent Daemon  Layer 2: Orchestration
 Runs 24/7 scanning for new emails based on saved rules.
 """
 

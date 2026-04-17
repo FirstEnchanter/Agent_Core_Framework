@@ -26,7 +26,7 @@ def export_to_csv():
         for proj in projects:
             writer.writerow(proj)
 
-    print(f"✅ Successfully exported your portfolio to {CSV_EXPORT_PATH}")
+    print(f" Successfully exported your portfolio to {CSV_EXPORT_PATH}")
     print("You can drag and drop this generated .csv file directly into Google Sheets!")
 
 if __name__ == "__main__":

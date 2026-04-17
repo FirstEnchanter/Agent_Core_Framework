@@ -1,4 +1,4 @@
-﻿import os
+import os
 import subprocess
 import sys
 
@@ -7,11 +7,11 @@ def create_file(path, content):
         f.write(content)
 
 def init_project(name):
-    print(f"ðŸš€ Initializing new project: {name}...")
+    print(f"Initializing new project: {name}...")
     
     # 1. Create Directory
     if os.path.exists(name):
-        print(f"âŒ Error: Directory '{name}' already exists.")
+        print(f"Error: Directory '{name}' already exists.")
         return
     os.makedirs(name)
     os.chdir(name)
@@ -20,17 +20,17 @@ def init_project(name):
     subprocess.run(["git", "init"], capture_output=True)
 
     # 3. Create Standard README.md
-    readme_content = f"""# ðŸš€ {name}
+    readme_content = f"""# {name}
 
 A new Autonomous Systems project component.
 
 ---
 
-## ðŸŒŸ Features
+## Features
 - Feature 1
 - Feature 2
 
-## ðŸ› ï¸ Setup & Installation
+## Setup and Installation
 ```bash
 # Example setup commands
 python -m venv .venv
@@ -38,7 +38,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## ðŸ“‚ Project Structure
+## Project Structure
 - `main.py`: Entry point.
 - `.env.example`: Configuration template.
 """
@@ -85,16 +85,16 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 @bot.event
 async def on_ready():
-    print(f"âœ… {name} is online!")
+    print(f"{name} is online!")
 
 @bot.command()
 async def stop(ctx):
     if await bot.is_owner(ctx.author):
-        await ctx.send("ðŸ›‘ Shutting down...")
+        await ctx.send("Shutting down...")
         await bot.close()
         sys.exit(0)
     else:
-        await ctx.send("â›” Access Denied.")
+        await ctx.send("Access Denied.")
 
 if __name__ == '__main__':
     if TOKEN:
@@ -113,12 +113,11 @@ if __name__ == '__main__':
     hook_content = "#!/bin/sh\npython ../04_Agent_Core/scripts/check_secrets.py"
     create_file(hook_path, hook_content)
 
-    print(f"âœ… Success! Project '{name}' is ready with README, security filters, and git hooks.")
-    print(f"ðŸ”— Next: cd {name} to start building.")
+    print(f"Success! Project '{name}' is ready with README, security filters, and git hooks.")
+    print(f"Next: cd {name} to start building.")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python scripts/new_project.py <project_name>")
     else:
         init_project(sys.argv[1])
-

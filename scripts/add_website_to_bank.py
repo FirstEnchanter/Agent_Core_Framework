@@ -1,4 +1,4 @@
-﻿from executor.tools.content import GoogleSheetsClient, CarrdClient
+from executor.tools.content import GoogleSheetsClient, CarrdClient
 from datetime import datetime, timezone
 from dotenv import load_dotenv
 import os
@@ -28,4 +28,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

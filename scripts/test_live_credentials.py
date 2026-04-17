@@ -1,5 +1,5 @@
-﻿"""
-Live Verification Script â€” Testing Real Credentials
+"""
+Live Verification Script  Testing Real Credentials
 Connects to Gmail and sends a real alert to Discord.
 """
 import sys
@@ -69,5 +69,3 @@ async def run_test():
 
 if __name__ == "__main__":
     asyncio.run(run_test())
-
-

@@ -1,15 +1,15 @@
 """
-Output Classes — Layer 2: Orchestration
+Output Classes  Layer 2: Orchestration
 
 Defines the 4 output classes that all agent outputs must belong to.
 Each class carries an associated risk tolerance that governs what
 checks are required before proceeding.
 
 Output Classes (from CLAUDE.md):
-    1. INTERNAL_REASONING       — Hidden logic, evaluations, intermediate thinking
-    2. INTERNAL_OPERATIONAL     — System updates, logs, structured data
-    3. CLIENT_FACING_DRAFT      — Content prepared but not yet public
-    4. PUBLIC_FACING_PUBLISHED  — Final, visible content
+    1. INTERNAL_REASONING        Hidden logic, evaluations, intermediate thinking
+    2. INTERNAL_OPERATIONAL      System updates, logs, structured data
+    3. CLIENT_FACING_DRAFT       Content prepared but not yet public
+    4. PUBLIC_FACING_PUBLISHED   Final, visible content
 """
 
 from __future__ import annotations
@@ -51,9 +51,9 @@ class OutputClassMeta:
         )
 
 
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 # Output class registry
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 
 OUTPUT_CLASS_REGISTRY: dict[OutputClass, OutputClassMeta] = {
     OutputClass.INTERNAL_REASONING: OutputClassMeta(

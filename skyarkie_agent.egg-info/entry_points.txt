@@ -1,0 +1,2 @@
+[console_scripts]
+Agent = main:app

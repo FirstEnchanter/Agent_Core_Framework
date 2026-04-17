@@ -1,11 +1,11 @@
-﻿[build-system]
+[build-system]
 requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "Agent-agent"
 version = "0.1.0"
-description = "Autonomous Systems â€” 3-Layer Agent Architecture"
+description = "Autonomous Systems  3-Layer Agent Architecture"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "Proprietary" }
@@ -73,4 +73,3 @@ ignore_missing_imports = true
 asyncio_mode = "auto"
 testpaths = ["tests"]
 addopts = "-v --cov=orchestrator --cov=executor --cov-report=term-missing"
-

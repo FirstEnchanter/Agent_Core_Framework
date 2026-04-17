@@ -1,4 +1,4 @@
-﻿import discord
+import discord
 from discord import app_commands
 from discord.ext import tasks, commands
 import json
@@ -38,7 +38,7 @@ class MasterBot(commands.Bot):
 
     async def on_ready(self):
         print("\n" + "="*50)
-        print("ðŸ›°ï¸ System Overseer is ONLINE!")
+        print(" System Overseer is ONLINE!")
         print("Overseeing all autonomous agents...")
         print("="*50 + "\n")
 
@@ -55,31 +55,31 @@ bot = MasterBot()
 
 @bot.tree.command(name="status", description="Check the operational health of all agents (System Overseer)")
 async def status(interaction: discord.Interaction):
-    embed = discord.Embed(title="ðŸ›¡ï¸ Agent Health Overview", color=0x145A5A)
+    embed = discord.Embed(title=" Agent Health Overview", color=0x145A5A)
     
     # Check Solar Lead Scout
     bot_log = os.path.join(ROOT_DIR, "logs", "bot.log")
-    solar_status = "ðŸŸ¡ Unknown"
+    solar_status = " Unknown"
     if os.path.exists(bot_log):
         mtime = os.path.getmtime(bot_log)
         import time
         if (time.time() - mtime) < 3600:
-            solar_status = "ðŸŸ¢ Active (Logged in last hour)"
+            solar_status = " Active (Logged in last hour)"
         else:
-            solar_status = "ðŸ”´ Inactive (No recent logs)"
+            solar_status = " Inactive (No recent logs)"
             
-    embed.add_field(name="ðŸ“ Solar Lead Scout", value=solar_status, inline=False)
+    embed.add_field(name=" Solar Lead Scout", value=solar_status, inline=False)
     
     # Check Triage Agent
-    embed.add_field(name="ðŸ“© Intelligence Agent", value="ðŸŸ¢ Online (Active)", inline=False)
+    embed.add_field(name=" Intelligence Agent", value=" Online (Active)", inline=False)
     
     # Check Research Agent
     research_log = os.path.join(ROOT_DIR, "..", "05_Agent_InsightLabs", "research.log")
-    research_status = "âšª Idle"
+    research_status = " Idle"
     if os.path.exists(research_log):
-        research_status = "ðŸŸ¢ Operational"
+        research_status = " Operational"
 
-    embed.add_field(name="ðŸ§ª Insight Research Agent", value=research_status, inline=False)
+    embed.add_field(name=" Insight Research Agent", value=research_status, inline=False)
     
     await interaction.response.send_message(embed=embed)
 
@@ -94,9 +94,9 @@ async def guardian_logs(interaction: discord.Interaction):
         data = json.load(f)
         recent = data[:5]
 
-    embed = discord.Embed(title="ðŸ›¡ï¸ Guardian Security Logs", color=0xE74C3C)
+    embed = discord.Embed(title=" Guardian Security Logs", color=0xE74C3C)
     for entry in recent:
-        level_icon = "ðŸ”´" if entry['level'] == "CRITICAL" else "ðŸŸ " if entry['level'] == "WARNING" else "ðŸ”µ"
+        level_icon = "" if entry['level'] == "CRITICAL" else "" if entry['level'] == "WARNING" else ""
         embed.add_field(
             name=f"{level_icon} {entry['type']} - {entry['timestamp'][:16]}",
             value=entry['message'],
@@ -107,10 +107,10 @@ async def guardian_logs(interaction: discord.Interaction):
 
 @bot.tree.command(name="system_help", description="View the System Manual")
 async def help_cmd(interaction: discord.Interaction):
-    embed = discord.Embed(title="ðŸ›°ï¸ System Manual", color=0x145A5A)
+    embed = discord.Embed(title=" System Manual", color=0x145A5A)
     embed.description = (
         "**System Overseer.** Use this to monitor your entire automated fleet.\n\n"
-        "### ðŸ•¹ï¸ Commands\n"
+        "###  Commands\n"
         "`/status`: Check operational health of all bots.\n"
         "`/logs`: View recent Guardian security and error flags.\n"
         "`/overseer_help`: Show this manual."
@@ -119,8 +119,7 @@ async def help_cmd(interaction: discord.Interaction):
 
 if __name__ == "__main__":
     if not TOKEN:
-        print("âŒ ERROR: COMMAND_CENTER_TOKEN not found in .env")
+        print(" ERROR: COMMAND_CENTER_TOKEN not found in .env")
         import sys
         sys.exit(1)
     bot.run(TOKEN)
-

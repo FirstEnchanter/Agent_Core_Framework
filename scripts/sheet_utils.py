@@ -1,7 +1,7 @@
 """
-sheet_utils.py — Shared Google Sheets safe-write utilities
+sheet_utils.py  Shared Google Sheets safe-write utilities
 
-Provides a scan → prepare → re-scan → merge → write pattern so that
+Provides a scan  prepare  re-scan  merge  write pattern so that
 manually-added rows are NEVER erased by automated script runs.
 
 Usage:
@@ -19,9 +19,9 @@ Usage:
 import time
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+# 
 #  Internal helpers
-# ─────────────────────────────────────────────────────────────────────────────
+# 
 
 def _scan(worksheet) -> list[list[str]]:
     """Read all current rows from a worksheet."""
@@ -33,7 +33,7 @@ def _extract_custom_rows(
     existing_rows: list[list[str]],
     known_keys: set[str],
     key_column: int,
-    section_marker: str = "──",
+    section_marker: str = "",
 ) -> list[list[str]]:
     """
     Return rows from existing_rows whose key value (at key_column) is NOT in
@@ -76,9 +76,9 @@ def _dedup(rows: list[list[str]], key_column: int) -> list[list[str]]:
     return result
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+# 
 #  Public API
-# ─────────────────────────────────────────────────────────────────────────────
+# 
 
 def safe_write_worksheet(
     worksheet,
@@ -86,15 +86,15 @@ def safe_write_worksheet(
     managed_data: list[list],
     key_column: int = 1,
     sheet_label: str = "Sheet",
-    section_marker: str = "──",
+    section_marker: str = "",
     freeze_header: bool = True,
     header_format: dict | None = None,
     section_format: dict | None = None,
 ) -> int:
     """
-    Safe-write a worksheet using a scan → prepare → re-scan → merge → write
+    Safe-write a worksheet using a scan  prepare  re-scan  merge  write
     pattern.  Any rows the user has manually added are preserved at the bottom
-    under a '── USER-ADDED ROWS ──' section heading.
+    under a ' USER-ADDED ROWS ' section heading.
 
     Returns the total number of rows written (excluding the header).
     """
@@ -107,7 +107,7 @@ def safe_write_worksheet(
         and not str(row[0]).startswith(section_marker)
     }
 
-    # ── SCAN 1 ────────────────────────────────────────────────────────────────
+    #  SCAN 1 
     print(f"  [{sheet_label}] SCAN 1: Reading existing content...")
     scan_1 = _scan(worksheet)
     print(f"  [{sheet_label}]   -> {len(scan_1)} rows found.")
@@ -115,13 +115,13 @@ def safe_write_worksheet(
     if custom_1:
         print(f"  [{sheet_label}]   -> {len(custom_1)} user-added row(s) detected.")
 
-    # ── PREPARE ───────────────────────────────────────────────────────────────
+    #  PREPARE 
     print(f"  [{sheet_label}] Preparing output...")
 
     # Brief pause so any concurrent edits have a chance to land
     time.sleep(0.5)
 
-    # ── SCAN 2 ────────────────────────────────────────────────────────────────
+    #  SCAN 2 
     print(f"  [{sheet_label}] SCAN 2: Re-reading to catch late edits...")
     scan_2 = _scan(worksheet)
     print(f"  [{sheet_label}]   -> {len(scan_2)} rows found.")
@@ -131,7 +131,7 @@ def safe_write_worksheet(
     keys_from_scan_1 = {r[key_column].strip() for r in custom_1 if len(r) > key_column}
     newly_added = [r for r in custom_2 if r[key_column].strip() not in keys_from_scan_1]
     if newly_added:
-        print(f"  [{sheet_label}]   -> {len(newly_added)} new row(s) appeared between scans — including them.")
+        print(f"  [{sheet_label}]   -> {len(newly_added)} new row(s) appeared between scans  including them.")
 
     # Merge and deduplicate custom rows from both scans
     all_custom = _dedup(custom_1 + newly_added, key_column)
@@ -143,12 +143,12 @@ def safe_write_worksheet(
         all_rows.extend(all_custom)
         print(f"  [{sheet_label}]   -> Appending {len(all_custom)} preserved custom row(s).")
 
-    # ── WRITE ─────────────────────────────────────────────────────────────────
+    #  WRITE 
     print(f"  [{sheet_label}] Writing {len(all_rows)} rows...")
     worksheet.clear()
     worksheet.update(values=all_rows, range_name="A1")
 
-    # ── FORMAT ────────────────────────────────────────────────────────────────
+    #  FORMAT 
     col_letter = chr(ord("A") + len(managed_headers) - 1)  # e.g. 4 cols -> "D"
 
     # Header row formatting

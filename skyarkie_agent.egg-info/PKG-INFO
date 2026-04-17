@@ -1,0 +1,151 @@
+Metadata-Version: 2.4
+Name: Agent-agent
+Version: 0.1.0
+Summary: Autonomous Systems  3-Layer Agent Architecture
+License: Proprietary
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: openai>=1.30
+Requires-Dist: httpx>=0.27
+Requires-Dist: python-dotenv>=1.0
+Requires-Dist: pydantic>=2.7
+Requires-Dist: google-auth>=2.29
+Requires-Dist: google-auth-httplib2>=0.2
+Requires-Dist: google-api-python-client>=2.130
+Requires-Dist: atproto>=0.0.54
+Requires-Dist: rich>=13.7
+Requires-Dist: typer>=0.12
+Requires-Dist: structlog>=24.1
+Provides-Extra: dev
+Requires-Dist: pytest>=8.2; extra == "dev"
+Requires-Dist: pytest-cov>=5.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.23; extra == "dev"
+Requires-Dist: ruff>=0.4; extra == "dev"
+Requires-Dist: black>=24.4; extra == "dev"
+Requires-Dist: mypy>=1.10; extra == "dev"
+
+# Autonomous Systems  Agent Architecture
+
+A structured, 3-layer agent system designed to balance **autonomy with integrity**.
+
+> *"You are not the worker. You are the steward of the system."*
+
+---
+
+## Architecture Overview
+
+```
+
+  Layer 1  DIRECTIVE          directives/            
+  Intent, structure, and boundaries                   
+  Written as SOP-style Markdown documents             
+
+  Layer 2  ORCHESTRATION      orchestrator/          
+  Decision-making, brand alignment, routing           
+  Bridge between intention and action                 
+
+  Layer 3  EXECUTION          executor/              
+  Deterministic tool actions, logging                 
+  Performs  does not reason                          
+
+```
+
+---
+
+## Governing Principles
+
+| Principle | Over |
+|---|---|
+| Clarity | Efficiency |
+| Long-term alignment | Short-term gain |
+| Careful growth | Aggressive expansion |
+| Integrity | Output volume |
+
+---
+
+## Directory Structure
+
+```
+Antigravity/
+ CLAUDE.md              Agent architecture specification
+ README.md              This file
+ main.py                CLI entrypoint
+ pyproject.toml         Project metadata & dependencies
+ .env.example           Required environment variables (template)
+
+ directives/            Layer 1  Directive
+    _template.md       Canonical directive template (all 7 sections)
+    _archive/          Superseded directive versions
+    README.md
+
+ orchestrator/          Layer 2  Orchestration
+    brand_alignment.py Brand Alignment Engine (4-dimension check)
+    output_classes.py  Output class definitions & risk tolerances
+    router.py          Directive reader + execution router
+    error_handler.py   Error handling + escalation
+    README.md
+
+ executor/              Layer 3  Execution
+    tools/
+       content.py     Google Sheets, Substack, OneDrive, Bluesky (read)
+       transformation.py  OpenAI, formatting utilities
+       publishing.py  Bluesky, email distribution
+       logging_tool.py    Structured action + error logger
+       storage.py     Archive & storage operations
+    README.md
+
+ logs/                  Runtime logs (gitignored)
+ drafts/                Client-facing draft outputs (gitignored)
+ tests/                 Pytest test suite
+```
+
+---
+
+## Setup
+
+```bash
+# Install dependencies
+pip install -e ".[dev]"
+
+# Copy and populate secrets
+cp .env.example .env
+
+# Run the CLI
+python main.py --help
+
+# Run tests
+pytest
+```
+
+---
+
+## Output Classes
+
+| Class | Description | Risk Tolerance |
+|---|---|---|
+| `INTERNAL_REASONING` | Hidden logic, evaluations | High |
+| `INTERNAL_OPERATIONAL` | System updates, logs, structured data | Medium |
+| `CLIENT_FACING_DRAFT` | Content prepared, not yet public | Low |
+| `PUBLIC_FACING_PUBLISHED` | Final, visible content | Minimal  BAE required |
+
+---
+
+## Brand Alignment Engine (BAE)
+
+All public-facing outputs must pass a 4-dimension check **in order**:
+
+1. **Truth**  Is content accurate and grounded in source material?
+2. **Mission Fit**  Does it align with Community, Environment, and Transparency?
+3. **Tone & Dignity**  Is the voice calm, grounded, and on-brand?
+4. **CTA Effectiveness**  Is the call-to-action clear and non-extractive?
+
+If checks 13 fail  constrained output mode or stop.
+
+---
+
+## Contributing (Agents & Humans)
+
+- Never delete directives  only supersede them
+- Archive previous version before revising any directive
+- Log every meaningful action: what, when, why, what changed
+- Never overwrite critical records without a trace

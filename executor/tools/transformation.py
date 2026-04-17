@@ -1,5 +1,5 @@
 """
-Transformation / Generation Tools — Layer 3: Execution
+Transformation / Generation Tools  Layer 3: Execution
 
 Tool Class 2: Transformation / Generation Tools (from CLAUDE.md)
 
@@ -10,8 +10,8 @@ Approved tools:
 
 Execution principles:
     - Keep actions deterministic (use temperature carefully)
-    - Avoid improvisation — trust the directive for prompting
-    - Ensure repeatability — log inputs and outputs
+    - Avoid improvisation  trust the directive for prompting
+    - Ensure repeatability  log inputs and outputs
 """
 
 from __future__ import annotations
@@ -24,9 +24,9 @@ from executor.tools.logging_tool import get_logger
 log = get_logger(__name__)
 
 
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 # OpenAI Client
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 
 class OpenAIClient:
     """
@@ -121,9 +121,9 @@ class OpenAIClient:
         return self.complete(system_prompt, text)
 
 
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 # Text Formatting Utilities
-# ──────────────────────────────────────────────────────────────────────────────
+# 
 
 class TextFormatter:
     """
@@ -145,7 +145,7 @@ class TextFormatter:
         return text
 
     @staticmethod
-    def truncate_to_chars(text: str, max_chars: int, ellipsis: str = "…") -> str:
+    def truncate_to_chars(text: str, max_chars: int, ellipsis: str = "") -> str:
         """
         Truncate text to max_chars, breaking at word boundary.
         """

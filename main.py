@@ -1,5 +1,5 @@
-﻿"""
-Autonomous Systems â€” Agent Architecture CLI Entrypoint
+"""
+Autonomous Systems  Agent Architecture CLI Entrypoint
 
 Usage:
     python main.py --help
@@ -26,7 +26,7 @@ from executor.tools.logging_tool import get_logger  # noqa: E402
 
 app = typer.Typer(
     name="Agent",
-    help="Autonomous Systems â€” 3-Layer Agent CLI",
+    help="Autonomous Systems  3-Layer Agent CLI",
     rich_markup_mode="rich",
     no_args_is_help=True,
 )
@@ -49,7 +49,7 @@ def run(
         console.print(f"[red]Directive not found:[/red] {directive_path}")
         raise typer.Exit(code=1)
 
-    console.print(f"\n[bold cyan]Agent Agent[/bold cyan] â€” Loading directive: [bold]{directive}[/bold]\n")
+    console.print(f"\n[bold cyan]Agent Agent[/bold cyan]  Loading directive: [bold]{directive}[/bold]\n")
 
     router = Router()
     router.execute(directive_path=directive_path, dry_run=dry_run)
@@ -71,11 +71,11 @@ def validate(
     result = router.validate_directive(directive_path)
 
     if result.is_valid:
-        console.print(f"[green]âœ“ Directive is valid:[/green] {directive}")
+        console.print(f"[green] Directive is valid:[/green] {directive}")
     else:
-        console.print(f"[red]âœ— Directive has issues:[/red] {directive}")
+        console.print(f"[red] Directive has issues:[/red] {directive}")
         for issue in result.issues:
-            console.print(f"  [yellow]â€¢[/yellow] {issue}")
+            console.print(f"  [yellow][/yellow] {issue}")
 
 
 @app.command(name="list-directives")
@@ -108,4 +108,3 @@ def list_directives() -> None:
 
 if __name__ == "__main__":
     app()
-
